@@ -1,0 +1,4 @@
+Condition,Directive
+mapService.getHierarchy(dest.getCode()).getState().getName().equals("DELHI"),pathDocuments.addRequired("FORM T2")
+mapService.getHierarchy(dest.getCode()).getState().getName().equals("KARNATAKA"),pathDocuments.addRequired("E-SUGAM")
+mapService.getHierarchy(src.getCode()).getState().getName().equals("DELHI") and mapService.getHierarchy(dest.getCode()).getState().getName().equals("HARYANA"), pathDocuments.addRequired("Form-403")
