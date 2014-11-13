@@ -20,4 +20,11 @@ public class Rule {
 	Condition condition;
     Directive directive;
     
+    public String toString() {
+    	return "Rule {" +
+    			 "condition : " + condition.toString() + ", " +
+    			 "directive : " + directive.getExpression() +
+    		   "}";
+    }
+    
 }

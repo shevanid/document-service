@@ -30,14 +30,12 @@ public class DefaultRuleService implements RuleService {
 		return repository.getRuleSet();
 	}
 
-	public Map<String, Directive> executeRules(Map<String, Object> context, List<Rule> rules) {
-		Map<String, Directive> applicableDirectives = new HashMap<String, Directive>();
+	public void executeRules(Map<String, Object> context, List<Rule> rules) {
 		for(Rule rule : rules) {
 			if (Boolean.parseBoolean(MVEL.eval(rule.getCondition().toString(),context).toString())) {
 				Directive directive = rule.getDirective();
 				try {
                     directive.execute(context);
-                    applicableDirectives.put(rule.toString(), directive);
 				}
 				catch (IllegalAccessException e) {
                     e.printStackTrace();
@@ -46,7 +44,6 @@ public class DefaultRuleService implements RuleService {
                 }
 			}
 		}
-		return null;
 	}
 	
 }

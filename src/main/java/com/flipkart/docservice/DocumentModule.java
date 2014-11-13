@@ -1,7 +1,7 @@
 package com.flipkart.docservice;
 
 import com.flipkart.docservice.rules.repository.RuleRepository;
-import com.flipkart.docservice.rules.repository.impl.SimpleRuleRepository;
+import com.flipkart.docservice.rules.repository.impl.CSVRuleRepository;
 import com.flipkart.docservice.services.MapService;
 import com.flipkart.docservice.services.RuleService;
 import com.flipkart.docservice.services.impl.DefaultMapService;
@@ -19,7 +19,7 @@ public class DocumentModule extends AbstractModule  {
 	protected void configure() {
         bind(MapService.class).to(DefaultMapService.class).asEagerSingleton();
         bind(RuleService.class).to(DefaultRuleService.class).asEagerSingleton();
-        bind(RuleRepository.class).to(SimpleRuleRepository.class).asEagerSingleton();
+        bind(RuleRepository.class).to(CSVRuleRepository.class).asEagerSingleton();
 	}
 
 }

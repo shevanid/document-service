@@ -97,26 +97,27 @@ public class DocumentResource {
 				ruleContext.put("shipment_value", shipment_value);
 				ruleContext.put("pathDocuments", pathDocuments);
 				
-				Map<String, Directive> directives = ruleService.executeRules(ruleContext, rules);
-				
-				if (directives != null && !directives.isEmpty()) {
-					for (Directive d : directives.values()) {
-						
-					}
+				ruleService.executeRules(ruleContext, rules);
+	
+				if (pathDocuments.getRequired().isEmpty()) {
+					pathDocuments.addRequired("No Documents needed");
 				}
 				
-				pathDocuments.addRequired("DOC");
-				
 				response.addDocument(pathDocuments);
+				
 				src = dest;
 			}
-		} catch (JsonParseException e) {
+		} 
+		catch (JsonParseException e) {
 			e.printStackTrace();
-		} catch (JsonMappingException e) {
+		} 
+		catch (JsonMappingException e) {
 			e.printStackTrace();
-		} catch (IOException e) {
+		} 
+		catch (IOException e) {
 			e.printStackTrace();
 		}
+		
 		return response;
 	}
 

@@ -3,7 +3,6 @@ package com.flipkart.docservice.services;
 import java.util.List;
 import java.util.Map;
 
-import com.flipkart.docservice.rules.Directive;
 import com.flipkart.docservice.rules.Rule;
 
 /**
@@ -15,6 +14,6 @@ public interface RuleService {
 
 	List<Rule> getRules();
 	
-	Map<String, Directive> executeRules(Map<String, Object> context, List<Rule> rules);
+	void executeRules(Map<String, Object> context, List<Rule> rules);
 	
 }
